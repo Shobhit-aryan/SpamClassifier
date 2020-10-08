@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spam mail classifier</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<body>
+   <div class="container">
+    <video src="particles.mp4" muted="" autoplay=""></video>
+    <h2><span>S</span>pam Ma<span>il</span> Classifier</h2>
+    <p>A machine learning web <span>app</span> built using flask and deployed on heroku</p>
+   
+   </div>   
+   <div class="ml-container">
+    <form action="{{ url_for('predict') }}" method="POST">
+        <textarea class='message-box' name="message" rows="15" cols="75" placeholder="Enter Your Message Here..."></textarea><br/>
+        <input type="submit" class="btn" value="Predict">
+    </form>
+    <h3>{{ prediction_text }}<h3></h3>
+   </div>
+   <div class="footer">
+       <ul>
+           <li><a href="#"><i class="fa fa-github-square" aria-hidden="true"></i> </a></li>
+           <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i> </a></li>
+           <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i> </a></li>
+
+       </ul>
+       <p>Made with ❤️ by Shobhit.</p>
+   </div>
+   
+   
+
+   
+</body>
+
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900&display=swap');
+html
+{
+    height: 100%;
+    margin: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+	
+    margin: 0;
+    padding: 0;
+    width: 100%;
+	height: 100%;
+	display: flex;
+      flex-direction: column;
+}
+p{
+    color:white;
+    text-align: center;
+}
+.container{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    background:black;
+    
+    
+}
+
+h2{
+    margin:0px;
+    padding:0px;
+    text-align: center;
+    font-size: 4.2em;
+    font-weight: 900;
+    color:#fff;
+    z-index: 1;
+    overflow: hidden;
+
+}
+
+h2 span, p span
+{
+    color:#ff022c;
+}
+h3{
+    color: white;
+    position: absolute;
+    top: 80%;
+    right: 40%;}
+video{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 20%;
+    object-fit: cover;
+    z-index: 2;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    margin: 0px;
+    padding: 0px
+}
+.ml-container{
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    display: flex;
+    background: black;
+  
+}
+.message-box{
+    
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 30%;
+    padding: 10px;
+    font-size: 16px;
+    font-family: Helvetica, sans-serif;
+    border: none;
+    border: 2px solid red;
+  
+}
+.btn{
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 75%;
+    left:46.5%;
+    
+    font-size: 20px;
+   
+}
+input
+{
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    color: #FD0E35;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size:24px;
+    overflow: hidden;
+    transition: 0.2s;
+}
+.btn:hover
+{
+    color: #f3f3f3;
+    background:#FD0E35;
+    box-shadow: 0 0 10px #FD0E35,
+                 0 0 40px #FD0E35,
+                 0 0 80px #FD0E35;
+    transition-delay: 0.2s;
+
+}
+.footer{
+    position:relative;
+    width:100%;
+    left:0;
+    bottom:0;
+    color:white;
+    background: black;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    position: absolute;
+    right: 0;
+    transform: translate(-50%,50%);
+}
+ul li{
+    list-style: none;
+    margin: 0 15px;
+}
+ul li a{
+    position:relative;
+    display: block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    background: #333;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #666;
+    transition: .5s;
+    
+
+};
+ul li a:before{
+    content:'';
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    border-radius: 50%;
+    background: red;
+    transform: scale(0.9);
+    z-index: -1;
+}
+
+ul li a:hover:before
+{
+    transform: scale(1.1);
+    box-shadow: 0 0 15px red;
+}
+ul li a:hover{
+    color: red;
+    box-shadow: 0 0 15px red;
+}
+</style>
+</html>
